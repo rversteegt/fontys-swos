@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="SMES" id="11279094" version="3.1.1">
+  <folder name="Business" id="38d234d0" type="business">
+    <element xsi:type="archimate:BusinessRole" id="1b94ccdf" name="Product Line Manager">
+      <documentation>PL Manager acts as a secondary salesman for new build vessels, who determines the contractual terms and the price. He comes in the picture when the functionality and technical design need to be discussed.&#xD;
+</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessRole" id="74cff097" name="Marketing Manager">
+      <documentation>Marketing Managers are responsible for marketing activities. &#xD;
+In the sales planning process, the PL Manager and the Marketing Manager support the Area Manager in the setup of the annual sales plan.</documentation>
+    </element>
+  </folder>
+  <folder name="Application" id="25de18ba" type="application"/>
+  <folder name="Technology" id="e592abfa" type="technology"/>
+  <folder name="Motivation" id="8b15a56b" type="motivation"/>
+  <folder name="Implementation &amp; Migration" id="9c358543" type="implementation_migration"/>
+  <folder name="Connectors" id="b1bfa5d2" type="connectors"/>
+  <folder name="Relations" id="55d43edd" type="relations"/>
+  <folder name="Views" id="fe41fff0" type="diagrams">
+    <element xsi:type="archimate:ArchimateDiagramModel" id="e12f3277" name="Default View"/>
+  </folder>
+</archimate:model>
