@@ -1,22 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="SMES" id="11279094" version="3.1.1">
   <folder name="Business" id="38d234d0" type="business">
-    <element xsi:type="archimate:BusinessRole" id="1b94ccdf" name="Product Line Manager">
-      <documentation>PL Manager acts as a secondary salesman for new build vessels, who determines the contractual terms and the price. He comes in the picture when the functionality and technical design need to be discussed.&#xD;
+    <folder name="Roles &amp; Actors" id="efedc913">
+      <folder name="SMES Components" id="755089d1">
+        <element xsi:type="archimate:BusinessRole" id="526af2a5" name="Local Sales Manager">
+          <documentation>The LSM is responsible for the total sales of in the aftermarket (spare parts and services) in its region. </documentation>
+        </element>
+        <element xsi:type="archimate:BusinessRole" id="9f34acc7" name="Account Manager">
+          <documentation>AM support the LSM, by being the first contact for a specific group of customers within a specific region. </documentation>
+        </element>
+        <element xsi:type="archimate:BusinessRole" id="84cb090c" name="Key Account Manager">
+          <documentation>SMES Components has for its most important customers Key AM (KAM) who are responsible for the total sales of in the aftermarket (spare parts and services) for a specific customer.&#xD;
 </documentation>
-    </element>
-    <element xsi:type="archimate:BusinessRole" id="74cff097" name="Marketing Manager">
-      <documentation>Marketing Managers are responsible for marketing activities. &#xD;
+        </element>
+        <element xsi:type="archimate:BusinessRole" id="40b2cc5c" name="Technical Account Manager">
+          <documentation>TAMs fulfill a technical consultancy role for the customer and are a customer’s first contact for technical issues. They closely cooperate with the (K)AMs and regularly visit the fleet of the customers. Their job is to identify leads and initiate follow up.&#xD;
+</documentation>
+        </element>
+        <element xsi:type="archimate:BusinessRole" id="d422aeaa" name="Sales Support Employee ">
+          <documentation>):  SSEs have an administrative role. They support the LSMs and (K)AMs by coordinating and processing the RFQ and RFO. SSEs operate within the LSO (SSE India) or from the central office in The Netherlands (SSE - Netherlands).&#xD;
+</documentation>
+        </element>
+        <element xsi:type="archimate:BusinessRole" id="c906ae79" name="Project Manager Technical Support">
+          <documentation>Managers TS are responsible for the execution of paid service jobs, supporting the commissioning of new build vessels and the settlement of claims. &#xD;
+</documentation>
+        </element>
+      </folder>
+      <folder name="Warranty" id="e15993d0">
+        <element xsi:type="archimate:BusinessRole" id="507f2a96" name="Project Leader Warranty">
+          <documentation>The Project Leader Warranty is responsible for the settlement of claims concerning a new build vessel.</documentation>
+        </element>
+        <element xsi:type="archimate:BusinessRole" id="7b78c2dc" name="Field Engineer Warranty">
+          <documentation>The Field Engineer Warranty executes service jobs during the warranty period of a ship.</documentation>
+        </element>
+      </folder>
+      <folder name="Product Line" id="8559a73f">
+        <element xsi:type="archimate:BusinessRole" id="74cff097" name="Marketing Manager">
+          <documentation>Marketing Managers are responsible for marketing activities. &#xD;
 In the sales planning process, the PL Manager and the Marketing Manager support the Area Manager in the setup of the annual sales plan.</documentation>
-    </element>
+        </element>
+        <element xsi:type="archimate:BusinessRole" id="1b94ccdf" name="Product Line Manager">
+          <documentation>PL Manager acts as a secondary salesman for new build vessels, who determines the contractual terms and the price. He comes in the picture when the functionality and technical design need to be discussed.&#xD;
+</documentation>
+        </element>
+      </folder>
+      <folder name="Area Management" id="2cb65b1a">
+        <element xsi:type="archimate:BusinessRole" id="f012cb68" name="Area manager">
+          <documentation>Area Manager fulfill a central role in the sales activities related to new build vessels. Each Area Manager operates in a specific region and is the first contact towards the customers in his region. Their primary job is to identify sales opportunities and initiate customer contact. Besides that, their job is to redirect customers to the appropriate BU for products other than new build.</documentation>
+        </element>
+        <element xsi:type="archimate:BusinessRole" id="8ec268c3" name="Central Sales Office Employee">
+          <documentation>The Central Sales Office Employees take chart of all the administrative tasks related to the activities of the Area Management. </documentation>
+        </element>
+        <element xsi:type="archimate:BusinessRole" id="3d2f104a" name="Agent">
+          <documentation>Agents are local, external representatives looking after the interests of SMES and are indispensable for the organization. An agent speaks the local language, understands the culture and politics in the region and knows the local market. Furthermore, his local network of contacts, such as representatives of ministries, can be of great added value. He generates leads, accompanies customer visits, and follows up on customer visits.</documentation>
+        </element>
+      </folder>
+    </folder>
+    <folder name="Products &amp; Services" id="aa474be6">
+      <element xsi:type="archimate:Product" id="3732250f" name="New Vessel"/>
+      <element xsi:type="archimate:Product" id="583c49ee" name="Spare Vessel Parts"/>
+      <element xsi:type="archimate:Product" id="269b8186" name="Vessel Parts"/>
+      <element xsi:type="archimate:BusinessService" id="e8e7e9da" name="Customer Service"/>
+      <element xsi:type="archimate:BusinessService" id="e3e4673d" name="Warranty"/>
+      <element xsi:type="archimate:Product" id="74120d7a" name="After Sales"/>
+    </folder>
   </folder>
   <folder name="Application" id="25de18ba" type="application"/>
   <folder name="Technology" id="e592abfa" type="technology"/>
   <folder name="Motivation" id="8b15a56b" type="motivation"/>
   <folder name="Implementation &amp; Migration" id="9c358543" type="implementation_migration"/>
   <folder name="Connectors" id="b1bfa5d2" type="connectors"/>
-  <folder name="Relations" id="55d43edd" type="relations"/>
+  <folder name="Relations" id="55d43edd" type="relations">
+    <element xsi:type="archimate:AssociationRelationship" id="d30f49a8" source="7b78c2dc" target="507f2a96"/>
+    <element xsi:type="archimate:SpecialisationRelationship" id="b362f461" source="84cb090c" target="9f34acc7"/>
+    <element xsi:type="archimate:AssociationRelationship" id="558bedec" source="40b2cc5c" target="9f34acc7"/>
+    <element xsi:type="archimate:AssociationRelationship" id="7f1d46ac" source="9f34acc7" target="d422aeaa"/>
+    <element xsi:type="archimate:AssociationRelationship" id="da2532ea" source="74cff097" target="f012cb68"/>
+    <element xsi:type="archimate:AssociationRelationship" id="9607d153" source="f012cb68" target="1b94ccdf"/>
+    <element xsi:type="archimate:SpecialisationRelationship" id="41dbfec0" source="583c49ee" target="269b8186"/>
+    <element xsi:type="archimate:AggregationRelationship" id="dc6f4459" source="3732250f" target="e8e7e9da"/>
+    <element xsi:type="archimate:AggregationRelationship" id="9cb4cf7f" source="3732250f" target="e3e4673d"/>
+    <element xsi:type="archimate:CompositionRelationship" id="c87fddce" source="74120d7a" target="269b8186"/>
+    <element xsi:type="archimate:CompositionRelationship" id="4f7686ba" source="74120d7a" target="583c49ee"/>
+    <element xsi:type="archimate:AggregationRelationship" id="fbecbe5a" source="74120d7a" target="e8e7e9da"/>
+    <element xsi:type="archimate:AggregationRelationship" id="3f6e92f3" source="74120d7a" target="e3e4673d"/>
+  </folder>
   <folder name="Views" id="fe41fff0" type="diagrams">
-    <element xsi:type="archimate:ArchimateDiagramModel" id="e12f3277" name="Default View"/>
+    <element xsi:type="archimate:ArchimateDiagramModel" id="e12f3277" name="Organisation View">
+      <child xsi:type="archimate:DiagramObject" id="5d2ed9af" textAlignment="2" targetConnections="40b08f0c" archimateElement="507f2a96">
+        <bounds x="60" y="252" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="2059455a" textAlignment="2" archimateElement="7b78c2dc">
+        <bounds x="60" y="420" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="40b08f0c" source="2059455a" target="5d2ed9af" relationship="d30f49a8"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="4f7f3dd0" textAlignment="2" archimateElement="84cb090c">
+        <bounds x="654" y="461" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="e82b17ac" source="4f7f3dd0" target="5ef0c0f9" relationship="b362f461"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="5ef0c0f9" textAlignment="2" targetConnections="e82b17ac 59aa0902" archimateElement="9f34acc7">
+        <bounds x="654" y="252" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="e8180284" source="5ef0c0f9" target="9c7027d8" relationship="7f1d46ac"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="27df3ff5" textAlignment="2" archimateElement="40b2cc5c">
+        <bounds x="372" y="252" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="59aa0902" source="27df3ff5" target="5ef0c0f9" relationship="558bedec"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="9c7027d8" textAlignment="2" targetConnections="e8180284" archimateElement="d422aeaa">
+        <bounds x="936" y="252" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="8a565962" textAlignment="2" archimateElement="c906ae79">
+        <bounds x="324" y="474" width="144" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="4d59a0b8" textAlignment="2" archimateElement="526af2a5">
+        <bounds x="924" y="474" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="29b6d7c6" textAlignment="2" archimateElement="3d2f104a">
+        <bounds x="148" y="99" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="1b5094b3" textAlignment="2" targetConnections="cd4a8118" archimateElement="f012cb68">
+        <bounds x="467" y="99" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="1a13bb52" source="1b5094b3" target="bf0c8bc3" relationship="9607d153"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="0ef0574b" textAlignment="2" archimateElement="8ec268c3">
+        <bounds x="312" y="99" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="bf3a5d6e" textAlignment="2" archimateElement="74cff097">
+        <bounds x="654" y="45" width="120" height="55"/>
+        <sourceConnection xsi:type="archimate:Connection" id="cd4a8118" source="bf3a5d6e" target="1b5094b3" relationship="da2532ea"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="bf0c8bc3" textAlignment="2" targetConnections="1a13bb52" archimateElement="1b94ccdf">
+        <bounds x="654" y="153" width="120" height="55"/>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" id="1a5864c7" name="Product View">
+      <child xsi:type="archimate:DiagramObject" id="b02c33d6" textAlignment="2" archimateElement="3732250f">
+        <bounds x="144" y="228" width="329" height="150"/>
+        <child xsi:type="archimate:DiagramObject" id="ceb9c6c8" textAlignment="2" archimateElement="e8e7e9da">
+          <bounds x="24" y="48" width="120" height="55"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="17c96765" textAlignment="2" archimateElement="e3e4673d">
+          <bounds x="180" y="48" width="120" height="55"/>
+        </child>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="4253ae7f" textAlignment="2" archimateElement="74120d7a">
+        <bounds x="552" y="228" width="388" height="277"/>
+        <child xsi:type="archimate:DiagramObject" id="4a38ded6" textAlignment="2" targetConnections="cd2946ec" archimateElement="269b8186">
+          <bounds x="36" y="72" width="120" height="55"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="1afa631e" textAlignment="2" archimateElement="583c49ee">
+          <bounds x="36" y="180" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="cd2946ec" source="1afa631e" target="4a38ded6" relationship="41dbfec0"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="4ae99865" textAlignment="2" archimateElement="e8e7e9da">
+          <bounds x="228" y="72" width="120" height="55"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="cc75ba37" textAlignment="2" archimateElement="e3e4673d">
+          <bounds x="228" y="180" width="120" height="55"/>
+        </child>
+      </child>
+    </element>
   </folder>
 </archimate:model>
