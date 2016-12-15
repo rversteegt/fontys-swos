@@ -95,7 +95,7 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
         <documentation>When [the complaint or claim] is received, the Sales Support Employee labels the claim.</documentation>
       </element>
       <element xsi:type="archimate:BusinessProcess" id="95584850" name="Prepare quotation"/>
-      <element xsi:type="archimate:BusinessProcess" id="7be4362d" name="Quatation negotiaton"/>
+      <element xsi:type="archimate:BusinessProcess" id="7be4362d" name="Quotation negotiaton"/>
       <element xsi:type="archimate:BusinessProcess" id="50c5955d" name="Register claim">
         <documentation>The claim is registered by the Project Leader Warranty. </documentation>
       </element>
@@ -231,10 +231,11 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
     <element xsi:type="archimate:AccessRelationship" id="10f28d8f" source="2c955823" target="6757d85a"/>
     <element xsi:type="archimate:TriggeringRelationship" id="052c8fa0" name="Appropriate" source="e77b4104" target="ef0e2d47"/>
     <element xsi:type="archimate:TriggeringRelationship" id="b383f058" name="Inappropriate" source="e77b4104" target="799f77b2"/>
+    <element xsi:type="archimate:RealisationRelationship" id="3930cd19" source="081fc363" target="f81daf35"/>
   </folder>
   <folder name="Views" id="fe41fff0" type="diagrams">
     <folder name="Business Processes" id="5bc4ab5f">
-      <element xsi:type="archimate:ArchimateDiagramModel" id="af08aa58" name="Gerrit - Process - New Build Offering" viewpoint="8">
+      <element xsi:type="archimate:ArchimateDiagramModel" id="af08aa58" name="Gerrit - New Build Offering" viewpoint="8">
         <child xsi:type="archimate:DiagramObject" id="d43670c2" textAlignment="2" archimateElement="42828c6e">
           <bounds x="204" y="300" width="120" height="55"/>
           <sourceConnection xsi:type="archimate:Connection" id="d30bbeab" source="d43670c2" target="67a97004" relationship="80fbc8f0"/>
@@ -257,9 +258,9 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
         </child>
         <child xsi:type="archimate:DiagramObject" id="5258cdb7" textAlignment="2" targetConnections="6c59c987" archimateElement="081fc363">
           <bounds x="804" y="300" width="120" height="55"/>
-          <sourceConnection xsi:type="archimate:Connection" id="1ddb9228" source="5258cdb7" target="e6108503" relationship="afc32f8e"/>
+          <sourceConnection xsi:type="archimate:Connection" id="b143e414" source="5258cdb7" target="e6108503" relationship="3930cd19"/>
         </child>
-        <child xsi:type="archimate:DiagramObject" id="e6108503" textAlignment="2" targetConnections="1ddb9228" archimateElement="f81daf35">
+        <child xsi:type="archimate:DiagramObject" id="e6108503" textAlignment="2" targetConnections="b143e414" archimateElement="f81daf35">
           <bounds x="984" y="300" width="120" height="55"/>
         </child>
       </element>
