@@ -74,6 +74,29 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
     <element xsi:type="archimate:BusinessProcess" id="7be4362d" name="Quatation negotiaton"/>
     <element xsi:type="archimate:BusinessProcess" id="081fc363" name="Contract negotation"/>
     <element xsi:type="archimate:BusinessService" id="f81daf35" name="Sales"/>
+    <element xsi:type="archimate:BusinessEvent" id="8d6d1a07" name="Complaint or claim is registered">
+      <documentation>Complaints and claims can come from customers directly, or, if it concerns a claim regarding a component on board of a new build vessel, it is received from Warranty. </documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" id="7f52fe8f" name="Label complaint or claim">
+      <documentation>When [the complaint or claim] is received, the Sales Support Employee labels the claim.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" id="5607ca27" name="Inform customer about (pending) resolution">
+      <documentation>If the claim is about a process, the KAM/LSM informs the customer on the measures that will be taken to resolve the complaint/claim.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" id="302cdbd4" name="Ask customer if resolution was satisfactory">
+      <documentation>Later, the SSE asks the customer if the resolution is satisfactory.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" id="a3f78658" name="Determine if complaint or claim is appropriate"/>
+    <element xsi:type="archimate:BusinessProcess" id="b36fa018" name="Inform customer complaint or claim is rejected"/>
+    <element xsi:type="archimate:BusinessProcess" id="a170b18e" name="Resolve complaint or claim">
+      <documentation>If it is appropriate, the Product Manager TS executes the work that is needed, ...</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" id="71b5b824" name="Write service report">
+      <documentation>... , [the Product Manager TS] writes a service report, ...</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" id="0dd037cf" name="Implement measures to resolve complaint or claim">
+      <documentation>This is not mentioned in the case, but self-evident.</documentation>
+    </element>
   </folder>
   <folder name="Application" id="25de18ba" type="application"/>
   <folder name="Technology" id="e592abfa" type="technology"/>
@@ -82,6 +105,9 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
   <folder name="Connectors" id="b1bfa5d2" type="connectors">
     <element xsi:type="archimate:OrJunction" id="20da9ad4" name="Or Junction"/>
     <element xsi:type="archimate:OrJunction" id="9f639874" name="Or Junction"/>
+    <element xsi:type="archimate:AndJunction" id="68826360" name="And Junction"/>
+    <element xsi:type="archimate:OrJunction" id="be1becf3" name="Or Junction"/>
+    <element xsi:type="archimate:OrJunction" id="e77b4104" name="Or Junction"/>
   </folder>
   <folder name="Relations" id="55d43edd" type="relations">
     <element xsi:type="archimate:AssociationRelationship" id="d30f49a8" source="7b78c2dc" target="507f2a96"/>
@@ -108,8 +134,125 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
     <element xsi:type="archimate:TriggeringRelationship" id="d737a0cb" source="9f639874" target="081fc363"/>
     <element xsi:type="archimate:TriggeringRelationship" id="b94e4e93" source="654e8274" target="7be4362d"/>
     <element xsi:type="archimate:TriggeringRelationship" id="afc32f8e" source="081fc363" target="f81daf35"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="7ffc080c" source="7f52fe8f" target="be1becf3"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="d2dcd8a8" source="be1becf3" target="5607ca27"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="71c97551" source="8d6d1a07" target="7f52fe8f"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="01902bd2" source="be1becf3" target="a3f78658"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="d69e25d3" source="a3f78658" target="e77b4104"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="b4e73b16" source="a170b18e" target="71b5b824"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="ae43a963" source="71b5b824" target="302cdbd4"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="397f6d27" source="5607ca27" target="0dd037cf"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="5aae4d99" source="0dd037cf" target="302cdbd4"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="da3c71f1" source="e77b4104" target="a170b18e"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="d1831aa9" source="e77b4104" target="b36fa018"/>
+    <element xsi:type="archimate:RealisationRelationship" id="0e763a9e" source="a170b18e" target="e3e4673d"/>
+    <element xsi:type="archimate:RealisationRelationship" id="cd5728e0" source="a170b18e" target="e8e7e9da"/>
+    <element xsi:type="archimate:RealisationRelationship" id="68ec9963" source="0dd037cf" target="e8e7e9da"/>
+    <element xsi:type="archimate:RealisationRelationship" id="73c3bd68" source="0dd037cf" target="e3e4673d"/>
   </folder>
   <folder name="Views" id="fe41fff0" type="diagrams">
+    <folder name="Business Processes" id="5bc4ab5f">
+      <element xsi:type="archimate:ArchimateDiagramModel" id="af08aa58" name="Gerrit - Process - New Build Offering" viewpoint="8">
+        <child xsi:type="archimate:DiagramObject" id="d43670c2" textAlignment="2" archimateElement="42828c6e">
+          <bounds x="204" y="300" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="d30bbeab" source="d43670c2" target="67a97004" relationship="80fbc8f0"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="67a97004" textAlignment="2" targetConnections="d30bbeab" archimateElement="654e8274">
+          <bounds x="384" y="300" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="60629c11" source="67a97004" target="01aea126" relationship="b94e4e93"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="01aea126" textAlignment="2" targetConnections="60629c11 94693292" archimateElement="7be4362d">
+          <bounds x="576" y="300" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="5684f87a" source="01aea126" target="5c8bed58" relationship="8ee598de"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="5c8bed58" targetConnections="5684f87a" archimateElement="9f639874">
+          <bounds x="744" y="320" width="15" height="15"/>
+          <sourceConnection xsi:type="archimate:Connection" id="6c59c987" source="5c8bed58" target="5258cdb7" relationship="d737a0cb"/>
+          <sourceConnection xsi:type="archimate:Connection" id="94693292" source="5c8bed58" target="01aea126" relationship="ba15e74f">
+            <bendpoint startY="-50" endX="115" endY="-50"/>
+            <bendpoint startX="-175" startY="-51" endY="-51"/>
+          </sourceConnection>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="5258cdb7" textAlignment="2" targetConnections="6c59c987" archimateElement="081fc363">
+          <bounds x="804" y="300" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="1ddb9228" source="5258cdb7" target="e6108503" relationship="afc32f8e"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="e6108503" textAlignment="2" targetConnections="1ddb9228" archimateElement="f81daf35">
+          <bounds x="984" y="300" width="120" height="55"/>
+        </child>
+      </element>
+      <element xsi:type="archimate:ArchimateDiagramModel" id="12368523" name="Robert - Complaint &amp; Claim Management" viewpoint="8">
+        <child xsi:type="archimate:DiagramObject" id="f3760db0" textAlignment="2" archimateElement="8d6d1a07">
+          <bounds x="156" y="284" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="0e75bcb8" source="f3760db0" target="91a549f0" relationship="71c97551"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="91a549f0" textAlignment="2" targetConnections="0e75bcb8" archimateElement="7f52fe8f">
+          <bounds x="348" y="284" width="145" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="a1e2e18f" source="91a549f0" target="f6446825" relationship="7ffc080c"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="371dcc48" textAlignment="2" targetConnections="d59d234d" archimateElement="5607ca27">
+          <bounds x="672" y="228" width="167" height="57"/>
+          <sourceConnection xsi:type="archimate:Connection" id="d6fe75ad" source="371dcc48" target="d07ee7c9" relationship="397f6d27"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="cd05c612" textAlignment="2" targetConnections="b8f7d58b 47b55fdd" archimateElement="302cdbd4">
+          <bounds x="1260" y="229" width="145" height="55"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="f6446825" targetConnections="a1e2e18f" archimateElement="be1becf3">
+          <bounds x="564" y="304" width="15" height="15"/>
+          <sourceConnection xsi:type="archimate:Connection" id="d59d234d" source="f6446825" target="371dcc48" relationship="d2dcd8a8">
+            <bendpoint startX="29" startY="-71" endX="-155" endY="-4"/>
+          </sourceConnection>
+          <sourceConnection xsi:type="archimate:Connection" id="b179c032" source="f6446825" target="e9603d12" relationship="01902bd2">
+            <bendpoint startX="29" startY="49" endX="-143" endY="-3"/>
+          </sourceConnection>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="e9603d12" textAlignment="2" targetConnections="b179c032" archimateElement="a3f78658">
+          <bounds x="672" y="360" width="167" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="25559bfc" source="e9603d12" target="d2334916" relationship="d69e25d3"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="d6e7516b" textAlignment="2" targetConnections="cbd1f6c0" archimateElement="b36fa018">
+          <bounds x="840" y="456" width="159" height="55"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="fd41edc4" textAlignment="2" targetConnections="bcf810eb" archimateElement="a170b18e">
+          <bounds x="1008" y="360" width="159" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="8504d9b9" source="fd41edc4" target="08f15cc0" relationship="b4e73b16"/>
+          <sourceConnection xsi:type="archimate:Connection" id="3390ea47" source="fd41edc4" target="7ac1958f" relationship="0e763a9e">
+            <bendpoint startX="113" startY="117" endX="-24" endY="-99"/>
+          </sourceConnection>
+          <sourceConnection xsi:type="archimate:Connection" id="d8bc2047" source="fd41edc4" target="7f3bda69" relationship="cd5728e0">
+            <bendpoint startX="161" startY="117" endX="-132" endY="-99"/>
+          </sourceConnection>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="08f15cc0" textAlignment="2" targetConnections="8504d9b9" archimateElement="71b5b824">
+          <bounds x="1260" y="360" width="145" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="b8f7d58b" source="08f15cc0" target="cd05c612" relationship="ae43a963"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="d2334916" targetConnections="25559bfc" archimateElement="e77b4104">
+          <bounds x="912" y="380" width="15" height="15"/>
+          <sourceConnection xsi:type="archimate:Connection" id="bcf810eb" source="d2334916" target="fd41edc4" relationship="da3c71f1"/>
+          <sourceConnection xsi:type="archimate:Connection" id="cbd1f6c0" source="d2334916" target="d6e7516b" relationship="d1831aa9"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="d07ee7c9" textAlignment="2" targetConnections="d6fe75ad" archimateElement="0dd037cf">
+          <bounds x="1008" y="229" width="159" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="47b55fdd" source="d07ee7c9" target="cd05c612" relationship="5aae4d99"/>
+          <sourceConnection xsi:type="archimate:Connection" id="82022978" source="d07ee7c9" target="7f3bda69" relationship="68ec9963">
+            <bendpoint startX="257" startY="296" endX="-36" endY="-51"/>
+          </sourceConnection>
+          <sourceConnection xsi:type="archimate:Connection" id="afc73635" source="d07ee7c9" target="7ac1958f" relationship="73c3bd68">
+            <bendpoint startX="137" startY="224" endY="-123"/>
+          </sourceConnection>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="7ac1958f" textAlignment="2" targetConnections="3390ea47 afc73635" archimateElement="e3e4673d">
+          <bounds x="1164" y="576" width="120" height="55"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="7f3bda69" textAlignment="2" targetConnections="d8bc2047 82022978" archimateElement="e8e7e9da">
+          <bounds x="1320" y="576" width="120" height="55"/>
+        </child>
+        <documentation>The complaint and claim management process for new build parts &amp; after sales refers to both the warranty service phase (for the settlement claims) and the customer support phase (for dealing with complaints). &#xD;
+Complaints and claims can come from customers directly, or, if it concerns a claim regarding a component on board of a new build vessel, it is received from Warranty. When it is received, the Sales Support Employee labels the claim. If the claim is about a process, the KAM/LSM informs the customer on the measures that will be taken to resolve the complaint/claim. Later, the SSE asks the customer if the resolution is satisfactory. If the complaint is product related, the Product Manager TS checks if the complaint is appropriate (inappropriate ones are rejected and the customer is informed by the respective KAM/LSM). If it is appropriate, the Product Manager TS executes the work that is needed, writes a service report, and finally, the SSE checks the customer satisfaction.&#xD;
+</documentation>
+      </element>
+    </folder>
     <element xsi:type="archimate:ArchimateDiagramModel" id="e12f3277" name="Organisation View">
       <child xsi:type="archimate:DiagramObject" id="5d2ed9af" textAlignment="2" targetConnections="40b08f0c" archimateElement="507f2a96">
         <bounds x="60" y="252" width="120" height="55"/>
@@ -185,34 +328,5 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
       </child>
     </element>
     <element xsi:type="archimate:ArchimateDiagramModel" id="9714ae20" name="Information View"/>
-    <element xsi:type="archimate:ArchimateDiagramModel" id="af08aa58" name="Gerrit - Process - New Build Offering" viewpoint="8">
-      <child xsi:type="archimate:DiagramObject" id="d43670c2" textAlignment="2" archimateElement="42828c6e">
-        <bounds x="204" y="300" width="120" height="55"/>
-        <sourceConnection xsi:type="archimate:Connection" id="d30bbeab" source="d43670c2" target="67a97004" relationship="80fbc8f0"/>
-      </child>
-      <child xsi:type="archimate:DiagramObject" id="67a97004" textAlignment="2" targetConnections="d30bbeab" archimateElement="654e8274">
-        <bounds x="384" y="300" width="120" height="55"/>
-        <sourceConnection xsi:type="archimate:Connection" id="60629c11" source="67a97004" target="01aea126" relationship="b94e4e93"/>
-      </child>
-      <child xsi:type="archimate:DiagramObject" id="01aea126" textAlignment="2" targetConnections="60629c11 94693292" archimateElement="7be4362d">
-        <bounds x="576" y="300" width="120" height="55"/>
-        <sourceConnection xsi:type="archimate:Connection" id="5684f87a" source="01aea126" target="5c8bed58" relationship="8ee598de"/>
-      </child>
-      <child xsi:type="archimate:DiagramObject" id="5c8bed58" targetConnections="5684f87a" archimateElement="9f639874">
-        <bounds x="744" y="320" width="15" height="15"/>
-        <sourceConnection xsi:type="archimate:Connection" id="6c59c987" source="5c8bed58" target="5258cdb7" relationship="d737a0cb"/>
-        <sourceConnection xsi:type="archimate:Connection" id="94693292" source="5c8bed58" target="01aea126" relationship="ba15e74f">
-          <bendpoint startY="-50" endX="115" endY="-50"/>
-          <bendpoint startX="-175" startY="-51" endY="-51"/>
-        </sourceConnection>
-      </child>
-      <child xsi:type="archimate:DiagramObject" id="5258cdb7" textAlignment="2" targetConnections="6c59c987" archimateElement="081fc363">
-        <bounds x="804" y="300" width="120" height="55"/>
-        <sourceConnection xsi:type="archimate:Connection" id="1ddb9228" source="5258cdb7" target="e6108503" relationship="afc32f8e"/>
-      </child>
-      <child xsi:type="archimate:DiagramObject" id="e6108503" textAlignment="2" targetConnections="1ddb9228" archimateElement="f81daf35">
-        <bounds x="984" y="300" width="120" height="55"/>
-      </child>
-    </element>
   </folder>
 </archimate:model>
