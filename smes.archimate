@@ -109,6 +109,12 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
       </element>
       <element xsi:type="archimate:BusinessProcess" id="3b7c8319" name="Follow up signals"/>
       <element xsi:type="archimate:BusinessProcess" id="5b31b79d" name="New Build Offering"/>
+      <element xsi:type="archimate:BusinessProcess" id="d4df30c9" name="Check for outstanding claims"/>
+      <element xsi:type="archimate:BusinessProcess" id="f9e21fe0" name="Check for outstanding complaints"/>
+      <element xsi:type="archimate:BusinessProcess" id="60fdd8d5" name="Check for outstanding payments"/>
+      <element xsi:type="archimate:BusinessProcess" id="a1d549b8" name="Collect existing order status"/>
+      <element xsi:type="archimate:BusinessProcess" id="e928cbb7" name="Collect quotation information"/>
+      <element xsi:type="archimate:BusinessProcess" id="492e47e3" name="Visit customer"/>
     </folder>
     <folder name="Events" id="bd55be9b">
       <element xsi:type="archimate:BusinessEvent" id="8d6d1a07" name="Customer or Warranty has complaint or claim">
@@ -123,6 +129,7 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
       <element xsi:type="archimate:BusinessEvent" id="51f5f4b7" name="Customer plans to replace vessel(s)"/>
       <element xsi:type="archimate:BusinessEvent" id="7ad2e0b4" name="New player wants to enter dredging market"/>
       <element xsi:type="archimate:BusinessEvent" id="a25229c6" name="Customer requests quotation"/>
+      <element xsi:type="archimate:BusinessEvent" id="f9ce15f0" name="Customer visit is planned"/>
     </folder>
     <folder name="Objects" id="581edff3">
       <element xsi:type="archimate:BusinessObject" id="1544e484" name="Customer"/>
@@ -132,15 +139,6 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
       <element xsi:type="archimate:BusinessObject" id="6757d85a" name="Sales Plan"/>
     </folder>
     <element xsi:type="archimate:BusinessService" id="f81daf35" name="Sales"/>
-    <element xsi:type="archimate:BusinessService" id="53fe0022" name="Sales"/>
-    <element xsi:type="archimate:BusinessService" id="4001468e" name="Offering"/>
-    <element xsi:type="archimate:BusinessEvent" id="f9ce15f0" name="Customer visit is planned"/>
-    <element xsi:type="archimate:BusinessProcess" id="e928cbb7" name="Collect quotation information"/>
-    <element xsi:type="archimate:BusinessProcess" id="60fdd8d5" name="Check for outstanding payments"/>
-    <element xsi:type="archimate:BusinessProcess" id="a1d549b8" name="Collect existing order status"/>
-    <element xsi:type="archimate:BusinessProcess" id="d4df30c9" name="Check for outstanding claims"/>
-    <element xsi:type="archimate:BusinessProcess" id="f9e21fe0" name="Check for outstanding complaints"/>
-    <element xsi:type="archimate:BusinessProcess" id="492e47e3" name="Visit customer"/>
   </folder>
   <folder name="Application" id="25de18ba" type="application"/>
   <folder name="Technology" id="e592abfa" type="technology"/>
