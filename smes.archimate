@@ -134,6 +134,13 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
     <element xsi:type="archimate:BusinessService" id="f81daf35" name="Sales"/>
     <element xsi:type="archimate:BusinessService" id="53fe0022" name="Sales"/>
     <element xsi:type="archimate:BusinessService" id="4001468e" name="Offering"/>
+    <element xsi:type="archimate:BusinessEvent" id="f9ce15f0" name="Customer visit is planned"/>
+    <element xsi:type="archimate:BusinessProcess" id="e928cbb7" name="Collect quotation information"/>
+    <element xsi:type="archimate:BusinessProcess" id="60fdd8d5" name="Check for outstanding payments"/>
+    <element xsi:type="archimate:BusinessProcess" id="a1d549b8" name="Collect existing order status"/>
+    <element xsi:type="archimate:BusinessProcess" id="d4df30c9" name="Check for outstanding claims"/>
+    <element xsi:type="archimate:BusinessProcess" id="f9e21fe0" name="Check for outstanding complaints"/>
+    <element xsi:type="archimate:BusinessProcess" id="492e47e3" name="Visit customer"/>
   </folder>
   <folder name="Application" id="25de18ba" type="application"/>
   <folder name="Technology" id="e592abfa" type="technology"/>
@@ -147,6 +154,8 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
     <element xsi:type="archimate:OrJunction" id="e77b4104" name="Decision: is complaint or claim appropriate"/>
     <element xsi:type="archimate:Junction" id="480ee7d8" name="Junction"/>
     <element xsi:type="archimate:OrJunction" id="00c21617" name="Decision: is solution satisfactory"/>
+    <element xsi:type="archimate:AndJunction" id="b21837ee" name="And Junction"/>
+    <element xsi:type="archimate:AndJunction" id="ad5e9cb9" name="And Junction"/>
   </folder>
   <folder name="Relations" id="55d43edd" type="relations">
     <element xsi:type="archimate:AssociationRelationship" id="d30f49a8" source="7b78c2dc" target="507f2a96"/>
@@ -239,6 +248,18 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
     <element xsi:type="archimate:TriggeringRelationship" id="deb03719" source="51f5f4b7" target="3b7c8319"/>
     <element xsi:type="archimate:TriggeringRelationship" id="070d6e17" source="7ad2e0b4" target="3b7c8319"/>
     <element xsi:type="archimate:TriggeringRelationship" id="d758f30c" source="a25229c6" target="5b31b79d"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="78fdc612" source="b21837ee" target="e928cbb7"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="fb77ed1a" source="b21837ee" target="60fdd8d5"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="b959f516" source="b21837ee" target="d4df30c9"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="649bbbd6" source="b21837ee" target="a1d549b8"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="3ddd5f96" source="b21837ee" target="f9e21fe0"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="bd14714e" source="f9ce15f0" target="b21837ee"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="db6dc5d2" source="f9e21fe0" target="ad5e9cb9"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="8d73bc3b" source="a1d549b8" target="ad5e9cb9"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="ac6af637" source="d4df30c9" target="ad5e9cb9"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="e7958d50" source="60fdd8d5" target="ad5e9cb9"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="5ddd5bce" source="e928cbb7" target="ad5e9cb9"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="388a768f" source="ad5e9cb9" target="492e47e3"/>
   </folder>
   <folder name="Views" id="fe41fff0" type="diagrams">
     <folder name="Business Processes" id="5bc4ab5f">
@@ -449,7 +470,47 @@ Firstly, all relevant data is collected. Then it is analyzed. On the basis of th
           <sourceConnection xsi:type="archimate:Connection" id="0a6eb469" source="ef95977a" target="627dda4f" relationship="d758f30c"/>
         </child>
       </element>
-      <element xsi:type="archimate:ArchimateDiagramModel" id="e9d633ff" name="Gerrit - Preparing Visit to Customer" viewpoint="8"/>
+      <element xsi:type="archimate:ArchimateDiagramModel" id="e9d633ff" name="Gerrit - Preparing Visit to Customer" viewpoint="8">
+        <child xsi:type="archimate:DiagramObject" id="ca9ee119" textAlignment="2" archimateElement="f9ce15f0">
+          <bounds x="-24" y="144" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="29318e0d" source="ca9ee119" target="b5c97819" relationship="bd14714e"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="b5c97819" targetConnections="29318e0d" archimateElement="b21837ee">
+          <bounds x="168" y="164" width="15" height="15"/>
+          <sourceConnection xsi:type="archimate:Connection" id="f165f905" source="b5c97819" target="2d4cf9bf" relationship="78fdc612"/>
+          <sourceConnection xsi:type="archimate:Connection" id="5970528b" source="b5c97819" target="49997198" relationship="fb77ed1a"/>
+          <sourceConnection xsi:type="archimate:Connection" id="fff2171e" source="b5c97819" target="ec2f14e0" relationship="b959f516"/>
+          <sourceConnection xsi:type="archimate:Connection" id="79e49d96" source="b5c97819" target="f89bb140" relationship="649bbbd6"/>
+          <sourceConnection xsi:type="archimate:Connection" id="5a4a29c3" source="b5c97819" target="d0d55d34" relationship="3ddd5f96"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="2d4cf9bf" textAlignment="2" targetConnections="f165f905" archimateElement="e928cbb7">
+          <bounds x="288" y="-12" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="4e46801d" source="2d4cf9bf" target="e718c24e" relationship="5ddd5bce"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="49997198" textAlignment="2" targetConnections="5970528b" archimateElement="60fdd8d5">
+          <bounds x="288" y="66" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="56eca92c" source="49997198" target="e718c24e" relationship="e7958d50"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="f89bb140" textAlignment="2" targetConnections="79e49d96" archimateElement="a1d549b8">
+          <bounds x="288" y="216" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="880b306b" source="f89bb140" target="e718c24e" relationship="8d73bc3b"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="ec2f14e0" textAlignment="2" targetConnections="fff2171e" archimateElement="d4df30c9">
+          <bounds x="288" y="144" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="d911d34b" source="ec2f14e0" target="e718c24e" relationship="ac6af637"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="d0d55d34" textAlignment="2" targetConnections="5a4a29c3" archimateElement="f9e21fe0">
+          <bounds x="288" y="288" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="0e7ff573" source="d0d55d34" target="e718c24e" relationship="db6dc5d2"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="e718c24e" targetConnections="0e7ff573 880b306b d911d34b 56eca92c 4e46801d" archimateElement="ad5e9cb9">
+          <bounds x="516" y="164" width="15" height="15"/>
+          <sourceConnection xsi:type="archimate:Connection" id="1c506ef4" source="e718c24e" target="5bd81175" relationship="388a768f"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="5bd81175" textAlignment="2" targetConnections="1c506ef4" archimateElement="492e47e3">
+          <bounds x="612" y="144" width="120" height="55"/>
+        </child>
+      </element>
     </folder>
     <folder name="Business Process Co-operations" id="c9e2462f">
       <element xsi:type="archimate:ArchimateDiagramModel" id="3e319161" name="Robert - Claim Settlement" viewpoint="7">
