@@ -139,6 +139,7 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
       <element xsi:type="archimate:BusinessObject" id="6757d85a" name="Sales Plan"/>
     </folder>
     <element xsi:type="archimate:BusinessService" id="f81daf35" name="Sales"/>
+    <element xsi:type="archimate:BusinessProcess" id="c8e13d80" name="Negotation stopped"/>
   </folder>
   <folder name="Application" id="25de18ba" type="application"/>
   <folder name="Technology" id="e592abfa" type="technology"/>
@@ -172,8 +173,8 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
     <element xsi:type="archimate:TriggeringRelationship" id="80fbc8f0" source="42828c6e" target="654e8274"/>
     <element xsi:type="archimate:TriggeringRelationship" id="a435829e" source="654e8274" target="20da9ad4"/>
     <element xsi:type="archimate:TriggeringRelationship" id="8ee598de" source="7be4362d" target="9f639874"/>
-    <element xsi:type="archimate:TriggeringRelationship" id="ba15e74f" source="9f639874" target="7be4362d"/>
-    <element xsi:type="archimate:TriggeringRelationship" id="d737a0cb" source="9f639874" target="081fc363"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="ba15e74f" name="Customer is unhappy with quotation" source="9f639874" target="7be4362d"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="d737a0cb" name="Customer is happy with quotation" source="9f639874" target="081fc363"/>
     <element xsi:type="archimate:TriggeringRelationship" id="b94e4e93" source="654e8274" target="7be4362d"/>
     <element xsi:type="archimate:TriggeringRelationship" id="afc32f8e" source="081fc363" target="f81daf35"/>
     <element xsi:type="archimate:TriggeringRelationship" id="7ffc080c" source="7f52fe8f" target="be1becf3"/>
@@ -258,12 +259,14 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
     <element xsi:type="archimate:TriggeringRelationship" id="e7958d50" source="60fdd8d5" target="ad5e9cb9"/>
     <element xsi:type="archimate:TriggeringRelationship" id="5ddd5bce" source="e928cbb7" target="ad5e9cb9"/>
     <element xsi:type="archimate:TriggeringRelationship" id="388a768f" source="ad5e9cb9" target="492e47e3"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="8757f120" name="AM decides to stop negotiations" source="9f639874" target="c8e13d80"/>
+    <element xsi:type="archimate:CompositionRelationship" id="62734b8b" source="5b31b79d" target="c8e13d80"/>
   </folder>
   <folder name="Views" id="fe41fff0" type="diagrams">
     <folder name="Business Processes" id="5bc4ab5f">
       <element xsi:type="archimate:ArchimateDiagramModel" id="af08aa58" name="Gerrit - New Build Offering" viewpoint="8">
         <child xsi:type="archimate:DiagramObject" id="28e654eb" textAlignment="2" archimateElement="5b31b79d">
-          <bounds x="276" y="96" width="600" height="156"/>
+          <bounds x="276" y="96" width="720" height="228"/>
           <child xsi:type="archimate:DiagramObject" id="5c8bed58" targetConnections="5684f87a" archimateElement="9f639874">
             <bounds x="384" y="92" width="15" height="15"/>
             <sourceConnection xsi:type="archimate:Connection" id="6c59c987" source="5c8bed58" target="5258cdb7" relationship="d737a0cb"/>
@@ -271,22 +274,26 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
               <bendpoint startY="-50" endX="115" endY="-50"/>
               <bendpoint startX="-114" startY="-50" endX="-12" endY="-50"/>
             </sourceConnection>
+            <sourceConnection xsi:type="archimate:Connection" id="14981fc4" source="5c8bed58" target="afec0681" relationship="8757f120"/>
           </child>
           <child xsi:type="archimate:DiagramObject" id="67a97004" textAlignment="2" targetConnections="d30bbeab" archimateElement="654e8274">
             <bounds x="36" y="72" width="120" height="55"/>
             <sourceConnection xsi:type="archimate:Connection" id="60629c11" source="67a97004" target="01aea126" relationship="b94e4e93"/>
           </child>
           <child xsi:type="archimate:DiagramObject" id="5258cdb7" textAlignment="2" targetConnections="6c59c987" archimateElement="081fc363">
-            <bounds x="432" y="72" width="120" height="55"/>
+            <bounds x="576" y="72" width="120" height="55"/>
             <sourceConnection xsi:type="archimate:Connection" id="b143e414" source="5258cdb7" target="e6108503" relationship="3930cd19"/>
           </child>
           <child xsi:type="archimate:DiagramObject" id="01aea126" textAlignment="2" targetConnections="60629c11 94693292" archimateElement="7be4362d">
             <bounds x="228" y="72" width="120" height="55"/>
             <sourceConnection xsi:type="archimate:Connection" id="5684f87a" source="01aea126" target="5c8bed58" relationship="8ee598de"/>
           </child>
+          <child xsi:type="archimate:DiagramObject" id="afec0681" textAlignment="2" targetConnections="14981fc4" archimateElement="c8e13d80">
+            <bounds x="332" y="156" width="120" height="55"/>
+          </child>
         </child>
         <child xsi:type="archimate:DiagramObject" id="e6108503" textAlignment="2" targetConnections="b143e414" archimateElement="f81daf35">
-          <bounds x="924" y="168" width="120" height="55"/>
+          <bounds x="1044" y="168" width="120" height="55"/>
         </child>
         <child xsi:type="archimate:DiagramObject" id="d43670c2" textAlignment="2" archimateElement="42828c6e">
           <bounds x="108" y="168" width="120" height="55"/>
@@ -714,6 +721,7 @@ Firstly, all relevant data is collected. Then it is analyzed. On the basis of th
           <bounds x="979" y="564" width="120" height="55"/>
         </child>
       </element>
+      <element xsi:type="archimate:ArchimateDiagramModel" id="09949683" name="Gerrit - "/>
     </folder>
     <element xsi:type="archimate:ArchimateDiagramModel" id="e12f3277" name="Organisation View">
       <child xsi:type="archimate:DiagramObject" id="5d2ed9af" textAlignment="2" targetConnections="40b08f0c" archimateElement="507f2a96">
