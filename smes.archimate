@@ -66,10 +66,7 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
     </folder>
     <element xsi:type="archimate:BusinessEvent" id="42828c6e" name="Request for quotation"/>
     <element xsi:type="archimate:BusinessService" id="45d8a6e3" name="Acceptance"/>
-    <element xsi:type="archimate:BusinessService" id="6faa8a03" name="Business Service"/>
     <element xsi:type="archimate:BusinessProcess" id="654e8274" name="Acceptance"/>
-    <element xsi:type="archimate:BusinessService" id="72ab7abc" name="Business Service"/>
-    <element xsi:type="archimate:BusinessProcess" id="2d44a198"/>
     <element xsi:type="archimate:BusinessProcess" id="95584850" name="Prepare quotation"/>
     <element xsi:type="archimate:BusinessProcess" id="7be4362d" name="Quatation negotiaton"/>
     <element xsi:type="archimate:BusinessProcess" id="081fc363" name="Contract negotation"/>
@@ -97,6 +94,29 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
     <element xsi:type="archimate:BusinessProcess" id="0dd037cf" name="Implement measures to resolve complaint or claim">
       <documentation>This is not mentioned in the case, but self-evident.</documentation>
     </element>
+    <element xsi:type="archimate:BusinessEvent" id="92492aff" name="Customer has a claim">
+      <documentation>The process starts with a new claim that comes to SMES.</documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" id="50c5955d" name="Register claim">
+      <documentation>The claim is registered by the Project Leader Warranty. </documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" id="799f77b2" name="Close claim"/>
+    <element xsi:type="archimate:BusinessProcess" id="ef0e2d47" name="Determine solution"/>
+    <element xsi:type="archimate:BusinessProcess" id="5bf9f917" name="Discuss solution with customer"/>
+    <element xsi:type="archimate:BusinessProcess" id="fd28f386" name="Apply solution"/>
+    <element xsi:type="archimate:BusinessEvent" id="3c35f15c" name="Yearly event"/>
+    <element xsi:type="archimate:BusinessProcess" id="97959adc" name="Collect relevent data">
+      <documentation>Firstly, all relevant data is collected. </documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" id="44a9bd70" name="Analyze data">
+      <documentation>Then [the data] is analyzed. </documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" id="739559d7" name="Write down plans">
+      <documentation>On the basis of the analysis the new plan is written down. </documentation>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" id="2c955823" name="Distribute plans">
+      <documentation>The plans are sent by email to other sales representatives on a need-to-know basis. </documentation>
+    </element>
   </folder>
   <folder name="Application" id="25de18ba" type="application"/>
   <folder name="Technology" id="e592abfa" type="technology"/>
@@ -108,6 +128,9 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
     <element xsi:type="archimate:AndJunction" id="68826360" name="And Junction"/>
     <element xsi:type="archimate:OrJunction" id="be1becf3" name="Or Junction"/>
     <element xsi:type="archimate:OrJunction" id="e77b4104" name="Or Junction"/>
+    <element xsi:type="archimate:Junction" id="480ee7d8" name="Junction"/>
+    <element xsi:type="archimate:OrJunction" id="cfca2408" name="Or Junction"/>
+    <element xsi:type="archimate:OrJunction" id="00c21617" name="Or Junction"/>
   </folder>
   <folder name="Relations" id="55d43edd" type="relations">
     <element xsi:type="archimate:AssociationRelationship" id="d30f49a8" source="7b78c2dc" target="507f2a96"/>
@@ -125,7 +148,6 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
     <element xsi:type="archimate:AggregationRelationship" id="3f6e92f3" source="74120d7a" target="e3e4673d"/>
     <element xsi:type="archimate:TriggeringRelationship" id="80fbc8f0" source="42828c6e" target="654e8274"/>
     <element xsi:type="archimate:TriggeringRelationship" id="a435829e" source="654e8274" target="20da9ad4"/>
-    <element xsi:type="archimate:TriggeringRelationship" id="d30ee602" source="20da9ad4" target="2d44a198"/>
     <element xsi:type="archimate:TriggeringRelationship" id="b95df6fd" source="20da9ad4" target="95584850"/>
     <element xsi:type="archimate:TriggeringRelationship" id="332e4e8b" source="654e8274" target="95584850"/>
     <element xsi:type="archimate:TriggeringRelationship" id="bcbbcddf" source="95584850" target="7be4362d"/>
@@ -149,6 +171,22 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
     <element xsi:type="archimate:RealisationRelationship" id="cd5728e0" source="a170b18e" target="e8e7e9da"/>
     <element xsi:type="archimate:RealisationRelationship" id="68ec9963" source="0dd037cf" target="e8e7e9da"/>
     <element xsi:type="archimate:RealisationRelationship" id="73c3bd68" source="0dd037cf" target="e3e4673d"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="ae777def" source="50c5955d" target="a3f78658"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="e7f09dbe" source="a3f78658" target="cfca2408"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="e7c5f94a" name="Inappropriate" source="cfca2408" target="799f77b2"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="1d842c3c" name="Appropriate" source="cfca2408" target="ef0e2d47"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="4b1493cb" source="ef0e2d47" target="5bf9f917"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="951f750a" source="5bf9f917" target="00c21617"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="c57283a5" name="Solution is unsatisfactory" source="00c21617" target="ef0e2d47"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="07b29982" name="Solution is satisfactory" source="00c21617" target="fd28f386"/>
+    <element xsi:type="archimate:RealisationRelationship" id="8a8b7cd7" source="fd28f386" target="e3e4673d"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="d1982b54" source="fd28f386" target="71b5b824"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="5b198a14" source="71b5b824" target="799f77b2"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="9986a744" source="92492aff" target="50c5955d"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="304c0d4d" source="3c35f15c" target="97959adc"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="ee05a443" source="97959adc" target="44a9bd70"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="15ac21f4" source="44a9bd70" target="739559d7"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="4d2b58fc" source="739559d7" target="2c955823"/>
   </folder>
   <folder name="Views" id="fe41fff0" type="diagrams">
     <folder name="Business Processes" id="5bc4ab5f">
@@ -250,6 +288,86 @@ In the sales planning process, the PL Manager and the Marketing Manager support 
         </child>
         <documentation>The complaint and claim management process for new build parts &amp; after sales refers to both the warranty service phase (for the settlement claims) and the customer support phase (for dealing with complaints). &#xD;
 Complaints and claims can come from customers directly, or, if it concerns a claim regarding a component on board of a new build vessel, it is received from Warranty. When it is received, the Sales Support Employee labels the claim. If the claim is about a process, the KAM/LSM informs the customer on the measures that will be taken to resolve the complaint/claim. Later, the SSE asks the customer if the resolution is satisfactory. If the complaint is product related, the Product Manager TS checks if the complaint is appropriate (inappropriate ones are rejected and the customer is informed by the respective KAM/LSM). If it is appropriate, the Product Manager TS executes the work that is needed, writes a service report, and finally, the SSE checks the customer satisfaction.&#xD;
+</documentation>
+      </element>
+      <element xsi:type="archimate:ArchimateDiagramModel" id="83620a57" name="Robert - Claim Settlement" viewpoint="8">
+        <child xsi:type="archimate:DiagramObject" id="29107fe4" textAlignment="2" archimateElement="92492aff">
+          <bounds x="-228" y="96" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="498e7f0d" source="29107fe4" target="9574939f" relationship="9986a744"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="9574939f" textAlignment="2" targetConnections="498e7f0d" archimateElement="50c5955d">
+          <bounds x="-48" y="96" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="7f450e7e" source="9574939f" target="5499610f" relationship="ae777def"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="5499610f" textAlignment="2" targetConnections="7f450e7e" archimateElement="a3f78658">
+          <bounds x="144" y="96" width="169" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="e78e13ce" source="5499610f" target="1bd3a693" relationship="e7f09dbe"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="1bd3a693" targetConnections="e78e13ce" archimateElement="cfca2408">
+          <bounds x="384" y="116" width="15" height="15"/>
+          <sourceConnection xsi:type="archimate:Connection" id="5d80e9ef" source="1bd3a693" target="a9a76383" relationship="e7c5f94a">
+            <bendpoint startX="41" startY="117" endX="-108" endY="1"/>
+          </sourceConnection>
+          <sourceConnection xsi:type="archimate:Connection" id="7a6bf880" source="1bd3a693" target="86d8a6dc" relationship="1d842c3c"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="a9a76383" textAlignment="2" targetConnections="5d80e9ef ee624139" archimateElement="799f77b2">
+          <bounds x="492" y="216" width="120" height="47"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="86d8a6dc" textAlignment="2" targetConnections="7a6bf880 16af9a82" archimateElement="ef0e2d47">
+          <bounds x="492" y="96" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="1b5802e4" source="86d8a6dc" target="ddbae51f" relationship="4b1493cb"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="ddbae51f" textAlignment="2" targetConnections="1b5802e4" archimateElement="5bf9f917">
+          <bounds x="684" y="96" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="07bc34a7" source="ddbae51f" target="d04ff9f5" relationship="951f750a"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="d04ff9f5" targetConnections="07bc34a7" archimateElement="00c21617">
+          <bounds x="852" y="116" width="15" height="15"/>
+          <sourceConnection xsi:type="archimate:Connection" id="16af9a82" source="d04ff9f5" target="86d8a6dc" relationship="c57283a5">
+            <bendpoint startX="-43" startY="-87" endX="276" endY="-87"/>
+            <bendpoint startX="-175" startY="-87" endX="144" endY="-87"/>
+            <bendpoint startX="-319" startY="-87" endY="-87"/>
+          </sourceConnection>
+          <sourceConnection xsi:type="archimate:Connection" id="7316e919" source="d04ff9f5" target="ae340b8f" relationship="07b29982"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="ae340b8f" textAlignment="2" targetConnections="7316e919" archimateElement="fd28f386">
+          <bounds x="1032" y="96" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="6a14065b" source="ae340b8f" target="38a3e8d5" relationship="8a8b7cd7"/>
+          <sourceConnection xsi:type="archimate:Connection" id="4bfd70df" source="ae340b8f" target="b3fa8545" relationship="d1982b54"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="b3fa8545" textAlignment="2" targetConnections="4bfd70df" archimateElement="71b5b824">
+          <bounds x="1032" y="208" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="ee624139" source="b3fa8545" target="a9a76383" relationship="5b198a14"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="38a3e8d5" textAlignment="2" targetConnections="6a14065b" archimateElement="e3e4673d">
+          <bounds x="1032" y="-48" width="120" height="55"/>
+        </child>
+        <documentation>The claim settlement process addresses the warranty service step and shows the course of the settlement of submitted warranty claims. The warranty period of a new build vessel is one year, allowing the customer to get failing components on board of the vessel repaired or replaced at the costs of SMES. &#xD;
+The process starts with a new claim that comes to SMES. The claim is registered by the Project Leader Warranty. It is checked and if it is inappropriate the customer is informed that the claim is rejected, the claim is closed, and the process stops. If it is appropriate, a solution is determined and is discussed with the customer. If the customer doesn’t agrees with it, a new solution is elaborated and discussed. If it is accepted, the solution is applied, a service report is written and the claim is closed. &#xD;
+</documentation>
+      </element>
+      <element xsi:type="archimate:ArchimateDiagramModel" id="2660f812" name="Robert - Sales Planning" viewpoint="8">
+        <child xsi:type="archimate:DiagramObject" id="eea63ef7" textAlignment="2" archimateElement="3c35f15c">
+          <bounds x="156" y="300" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="82a281bb" source="eea63ef7" target="e7713e87" relationship="304c0d4d"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="e7713e87" textAlignment="2" targetConnections="82a281bb" archimateElement="97959adc">
+          <bounds x="348" y="300" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="8a099faf" source="e7713e87" target="e1e49ba5" relationship="ee05a443"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="e1e49ba5" textAlignment="2" targetConnections="8a099faf" archimateElement="44a9bd70">
+          <bounds x="552" y="300" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="bb2c9403" source="e1e49ba5" target="ecf6f12d" relationship="15ac21f4"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="ecf6f12d" textAlignment="2" targetConnections="bb2c9403" archimateElement="739559d7">
+          <bounds x="744" y="300" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="defddd58" source="ecf6f12d" target="feace121" relationship="4d2b58fc"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="feace121" textAlignment="2" targetConnections="defddd58" archimateElement="2c955823">
+          <bounds x="924" y="300" width="120" height="55"/>
+        </child>
+        <documentation>Yearly, all Area Managers, LSMs, and KAMs, write a sales plan for the next year. These plans include a thorough analysis of the market, including aspects such as trends in the market in the area or region, SMES’s market position, competitor analysis, customer profile and customer’s investment plans. &#xD;
+Firstly, all relevant data is collected. Then it is analyzed. On the basis of the analysis the new plan is written down. The plans are sent by email to other sales representatives on a need-to-know basis. &#xD;
 </documentation>
       </element>
     </folder>
