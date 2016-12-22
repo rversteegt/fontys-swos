@@ -147,6 +147,7 @@
     <element xsi:type="archimate:ApplicationComponent" id="97032de0" name="HARP"/>
     <element xsi:type="archimate:ApplicationComponent" id="c28bbb51" name="Reporting"/>
     <element xsi:type="archimate:BusinessProcess" id="e45cd2ec" name="Lead Management"/>
+    <element xsi:type="archimate:ApplicationService" id="5b59e6b5" name="Register claims"/>
   </folder>
   <folder name="Application" id="25de18ba" type="application"/>
   <folder name="Technology" id="e592abfa" type="technology"/>
@@ -331,6 +332,8 @@
     <element xsi:type="archimate:CompositionRelationship" id="24d046b1" source="7bb601c4" target="58f2f1cd"/>
     <element xsi:type="archimate:CompositionRelationship" id="cdb9dfc5" source="46975c8e" target="a85be99a"/>
     <element xsi:type="archimate:CompositionRelationship" id="c895d33a" source="4318baef" target="1cea55cf"/>
+    <element xsi:type="archimate:RealisationRelationship" id="507eb134" source="262a6723" target="5b59e6b5"/>
+    <element xsi:type="archimate:UsedByRelationship" id="08d74c42" source="5b59e6b5" target="50c5955d"/>
   </folder>
   <folder name="Views" id="fe41fff0" type="diagrams">
     <folder name="Business Processes" id="5bc4ab5f">
@@ -916,7 +919,7 @@ Firstly, all relevant data is collected. Then it is analyzed. On the basis of th
           <bounds x="-218" y="106" width="120" height="55"/>
           <sourceConnection xsi:type="archimate:Connection" id="368ab041" source="11c8a89b" target="57ee75f4" relationship="9986a744"/>
         </child>
-        <child xsi:type="archimate:DiagramObject" id="57ee75f4" textAlignment="2" targetConnections="368ab041" archimateElement="50c5955d">
+        <child xsi:type="archimate:DiagramObject" id="57ee75f4" textAlignment="2" targetConnections="368ab041 62b33a36" archimateElement="50c5955d">
           <bounds x="-38" y="106" width="120" height="55"/>
           <sourceConnection xsi:type="archimate:Connection" id="ca9d0374" source="57ee75f4" target="2d155e13" relationship="ae777def"/>
         </child>
@@ -960,7 +963,8 @@ Firstly, all relevant data is collected. Then it is analyzed. On the basis of th
           <sourceConnection xsi:type="archimate:Connection" id="9bdcd71c" source="c44490a1" target="a9c198dd" relationship="052c8fa0"/>
         </child>
         <child xsi:type="archimate:DiagramObject" id="e8896682" textAlignment="2" archimateElement="262a6723">
-          <bounds x="240" y="386" width="120" height="55"/>
+          <bounds x="-38" y="324" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="6b873cad" source="e8896682" target="0cdd4783" relationship="507eb134"/>
         </child>
         <child xsi:type="archimate:DiagramObject" id="64bf2cb2" textAlignment="2" archimateElement="8ca0e3b4">
           <bounds x="420" y="-120" width="120" height="55"/>
@@ -969,6 +973,10 @@ Firstly, all relevant data is collected. Then it is analyzed. On the basis of th
         <child xsi:type="archimate:DiagramObject" id="e720e2a9" textAlignment="2" targetConnections="ced9599d" archimateElement="f1d362fe">
           <bounds x="420" y="-12" width="120" height="55"/>
           <sourceConnection xsi:type="archimate:Connection" id="e27295fc" source="e720e2a9" target="a9c198dd" relationship="c9d773a3"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="0cdd4783" textAlignment="2" targetConnections="6b873cad" archimateElement="5b59e6b5">
+          <bounds x="-38" y="222" width="120" height="55"/>
+          <sourceConnection xsi:type="archimate:Connection" id="62b33a36" source="0cdd4783" target="57ee75f4" relationship="08d74c42"/>
         </child>
       </element>
       <element xsi:type="archimate:ArchimateDiagramModel" id="8a7e63d1" name="Robert - Complaint &amp; Claim Management" viewpoint="5">
